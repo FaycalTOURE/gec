@@ -1,0 +1,48 @@
+{
+  "name": "ceguinee",
+  "version": "1.0.0",
+  "description": "ce guinee by Fayçal Touré",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=dev webpack",
+    "prod": "webpack"
+  },
+  "author": "Fayçal Touré",
+  "license": "MIT",
+  "dependencies": {
+    "D": "1.0.0",
+    "angular": "1.7.5",
+    "animate.css": "3.7.0",
+    "bootstrap": "4.2.1",
+    "cookie-parser": "1.4.4",
+    "express": "4.16.4",
+    "fontawesome": "5.6.3",
+    "nodemon": "1.18.10"
+  },
+  "devDependencies": {
+    "autoprefixer": "9.4.4",
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.5",
+    "babel-plugin-add-module-exports": "1.0.0",
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "babel-preset-env": "1.7.0",
+    "clean-webpack-plugin": "1.0.1",
+    "css-loader": "2.1.0",
+    "extract-text-webpack-plugin": "4.0.0-beta.0",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "3.2.0",
+    "mini-css-extract-plugin": "0.5.0",
+    "node-sass": "4.11.0",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
+    "path": "0.12.7",
+    "postcss-loader": "3.0.0",
+    "sass-loader": "7.1.0",
+    "style-loader": "0.23.1",
+    "uglifyjs-webpack-plugin": "2.1.1",
+    "webpack": "4.0.0",
+    "webpack-cli": "3.2.0",
+    "webpack-manifest-plugin": "2.0.4",
+    "webpack-md5-hash": "0.0.6"
+  }
+}

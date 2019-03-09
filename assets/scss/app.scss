@@ -1,0 +1,14 @@
+$color: #FF0088;
+
+body{
+    background: darken($color, 10%);
+    transform: translate(0, 20px);
+    color: #fff;
+}
+
+.this-is-an-scss{
+    color: red;
+    &__body{
+        color: green;
+    }
+}
