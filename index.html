@@ -6,7 +6,16 @@
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.app.css %>">
 </head>
 <body>
-    <script src="<%= htmlWebpackPlugin.files.chunks.app.entry %>"></script>
-<h1>Bonjour !</h1>
+<script type="text/javascript">
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "/dist/svg/sprites.svg", true);
+    ajax.onload = function (e) {
+        var div = document.createElement("div");
+        div.innerHTML = ajax.responseText;
+        document.body.insertBefore(div, document.body.childNodes[0]);
+    };
+    ajax.send();
+</script>
+<script src="<%= htmlWebpackPlugin.files.chunks.app.entry %>"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@ app.use('/dist', express.static(__dirname + '/dist', {
     etag: false,
     extensions: ['htm', 'html'],
     index: false,
-    maxAge: 31536000,
+    maxAge: '1y',
     redirect: false,
     setHeaders: function (res, path, stat) {
         res.set('x-timestamp', Date.now())
