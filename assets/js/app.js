@@ -1,2 +1,2 @@
-import config from './config';
-console.log(config);
+import config from './config'
+console.log(config)

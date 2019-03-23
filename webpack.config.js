@@ -10,9 +10,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 
-
 const dev = process.env.NODE_ENV === 'dev';
-const cssLoaders = [{loader: 'css-loader', options : { importLoaders: 1, hashPrefix: 'hash', sourceMap: dev } }];
+const cssLoaders = [{loader: 'css-loader', options: {importLoaders: 1, hashPrefix: 'hash', sourceMap: dev}}];
 
 let config = {
     mode: dev ? 'development' : 'production',
@@ -34,16 +33,27 @@ let config = {
         },
         runtimeChunk: true,
     },
-    entry : {
+    entry: {
         app: ['./assets/scss/app.scss', './assets/js/app.js']
     },
-    output : {
+    output: {
         path: path.resolve('./dist'),
         filename: dev ? '[name].js' : '[name].[chunkhash:8].js',
         publicPath: '/dist/'
     },
+    resolve: {
+        alias: {
+            '@': path.resolve('./assets'),
+        }
+    },
     module: {
         rules: [
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: ['eslint-loader']
+            },
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
@@ -62,13 +72,36 @@ let config = {
                     fallback: 'style-loader',
                     use: [...cssLoaders, 'sass-loader']
                 })
+            }, {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)/,
+                loader: 'file-loader',
             },
             {
-                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 10000,
-                },
+                test: /\.(png|jpg|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: '[name].[hash:7].[ext]',
+                        }
+                    },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            enabled: !dev
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.html$/,
+                use: [ {
+                    loader: 'html-loader',
+                    options: {
+                        minimize: true
+                    }
+                }],
             }
         ]
     },
@@ -87,11 +120,11 @@ let config = {
     ]
 };
 
-if(!dev){
+if (!dev) {
     cssLoaders.push({
         loader: 'postcss-loader',
         options: {
-            plugins: [ require('autoprefixer')({
+            plugins: [require('autoprefixer')({
                 browsers: ['last 2 versions', 'ie > 8']
             })]
         }
