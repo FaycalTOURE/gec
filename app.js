@@ -17,6 +17,10 @@ app.use('/dist', express.static(__dirname + '/dist', {
     redirect: false
 })).use(cookieParser());
 
+app.set('views', __dirname + '/views');
+app.engine('hbs', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'hbs');
+
 const runtimeContent = fs.readFileSync(__dirname + manifest['runtime~app.js'], 'utf8');
 
 app.get('/', (req, res) => {
