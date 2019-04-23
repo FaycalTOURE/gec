@@ -18,6 +18,7 @@
     "cookie-parser": "1.4.4",
     "express": "4.16.4",
     "express-handlebars": "3.0.2",
+    "lodash": "4.17.11",
     "serve-static": "1.13.2"
   },
   "devDependencies": {
