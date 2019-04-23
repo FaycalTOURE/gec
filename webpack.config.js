@@ -34,7 +34,7 @@ let config = {
         runtimeChunk: true,
     },
     entry: {
-        app: ['client/landing/css/scss/app.scss', 'client/landing/js/app.js']
+        app: ['./client/landing/css/scss/app.scss', './client/landing/js/app/app.js']
     },
     output: {
         path: path.resolve('./dist'),

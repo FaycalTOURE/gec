@@ -1,3 +1,38 @@
 {
-  "extends": "standard"
+  "extends": "standard",
+  "rules": {
+    "complexity": [2, 5],
+    "max-depth": [2, 4],
+    "max-nested-callbacks": [2, 6],
+    "max-len": [1, 140, 4],
+    "new-cap": 0,
+    "indent": [
+      2,
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "quotes": [
+      2,
+      "single"
+    ],
+    "linebreak-style": [
+      2,
+      "unix"
+    ],
+    "semi": [
+      2,
+      "always"
+    ]
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  }
 }
